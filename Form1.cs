@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace bai_4._1
+namespace bai_4._2
 {
     public partial class Form1 : Form
     {
@@ -17,73 +17,50 @@ namespace bai_4._1
             InitializeComponent();
         }
 
+        // Tạo một class phụ để chứa dữ liệu Khóa học
+        public class Course
+        {
+            public string Id { get; set; }
+            public string Name { get; set; }
+        }
+
+        // Xử lý nạp dữ liệu khi Form vừa chạy lên
         private void Form1_Load(object sender, EventArgs e)
         {
+            List<Course> listCourses = new List<Course>()
+            {
+                new Course() { Id = "C01", Name = "Lập trình C# cơ bản" },
+                new Course() { Id = "C02", Name = "Lập trình Web ASP.NET" },
+                new Course() { Id = "C03", Name = "Cơ sở dữ liệu SQL Server" }
+            };
+
+            cboCourse.DataSource = listCourses;
+            cboCourse.DisplayMember = "Name"; // Hiển thị tên khóa học
+            cboCourse.ValueMember = "Id";     // Lưu trữ mã khóa học ngầm
         }
 
-        private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
+        // Xử lý khi bấm nút Đăng ký
+        private void btnDangKy_Click(object sender, EventArgs e)
         {
-            if (chkShowPassword.Checked)
-            {
-                txtPassword.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                
-                txtPassword.UseSystemPasswordChar = true;
-            }
-        }
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
+            string phone = mtxtPhone.Text;
+            string dob = dtpBirthDate.Value.ToString("dd/MM/yyyy");
+            string courseName = cboCourse.Text;
 
-            errorProvider.Clear();
-            bool isValid = true;
-            
-            if (string.IsNullOrWhiteSpace(txtUsername.Text))
-            {
-                errorProvider.SetError(txtUsername, "Không được để trống Tên đăng nhập!");
-                isValid = false;
-            }
+            string thongTin = "XÁC NHẬN THÔNG TIN ĐĂNG KÝ:\n\n" +
+                              "- Số điện thoại: " + phone + "\n" +
+                              "- Ngày sinh: " + dob + "\n" +
+                              "- Khóa học: " + courseName;
 
-      
-            if (string.IsNullOrWhiteSpace(txtPassword.Text))
-            {
-                errorProvider.SetError(txtPassword, "Không được để trống Mật khẩu!");
-                isValid = false;
-            }
-
-            if (isValid)
-            {
-                MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            MessageBox.Show(thongTin, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
- 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát chương trình?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-        }
-
-        private void txtUsername_TextChanged(object sender, EventArgs e)
+        // Hàm này do bạn click đúp vào ComboBox sinh ra, cứ để nguyên
+        private void cboCourse_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void btnLogin_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnExit_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPassword_TextChanged(object sender, EventArgs e)
+        private void mtxtPhone_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }
