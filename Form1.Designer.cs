@@ -1,4 +1,4 @@
-﻿namespace bai_4._1
+﻿namespace bai_4._2
 {
     partial class Form1
     {
@@ -28,84 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.chkShowPassword = new System.Windows.Forms.CheckBox();
-            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            this.mtxtPhone = new System.Windows.Forms.MaskedTextBox();
+            this.dtpBirthDate = new System.Windows.Forms.DateTimePicker();
+            this.cboCourse = new System.Windows.Forms.ComboBox();
+            this.btnDangKy = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // txtUsername
+            // mtxtPhone
             // 
-            this.txtUsername.Location = new System.Drawing.Point(190, 98);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(307, 22);
-            this.txtUsername.TabIndex = 0;
-            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
+            this.mtxtPhone.Location = new System.Drawing.Point(371, 169);
+            this.mtxtPhone.Mask = "(000) 000-0000";
+            this.mtxtPhone.Name = "mtxtPhone";
+            this.mtxtPhone.Size = new System.Drawing.Size(180, 22);
+            this.mtxtPhone.TabIndex = 0;
+            this.mtxtPhone.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mtxtPhone_MaskInputRejected);
             // 
-            // txtPassword
+            // dtpBirthDate
             // 
-            this.txtPassword.Location = new System.Drawing.Point(190, 146);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(307, 22);
-            this.txtPassword.TabIndex = 1;
-            this.txtPassword.UseSystemPasswordChar = true;
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
+            this.dtpBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpBirthDate.Location = new System.Drawing.Point(371, 208);
+            this.dtpBirthDate.Name = "dtpBirthDate";
+            this.dtpBirthDate.Size = new System.Drawing.Size(200, 22);
+            this.dtpBirthDate.TabIndex = 1;
             // 
-            // btnLogin
+            // cboCourse
             // 
-            this.btnLogin.Location = new System.Drawing.Point(61, 96);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(92, 23);
-            this.btnLogin.TabIndex = 2;
-            this.btnLogin.Text = "Đăng nhập";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
+            this.cboCourse.FormattingEnabled = true;
+            this.cboCourse.Location = new System.Drawing.Point(440, 291);
+            this.cboCourse.Name = "cboCourse";
+            this.cboCourse.Size = new System.Drawing.Size(121, 24);
+            this.cboCourse.TabIndex = 2;
+            this.cboCourse.SelectedIndexChanged += new System.EventHandler(this.cboCourse_SelectedIndexChanged);
             // 
-            // btnExit
+            // btnDangKy
             // 
-            this.btnExit.Location = new System.Drawing.Point(61, 144);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(92, 23);
-            this.btnExit.TabIndex = 3;
-            this.btnExit.Text = "Thoát";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click_1);
-            // 
-            // chkShowPassword
-            // 
-            this.chkShowPassword.AutoSize = true;
-            this.chkShowPassword.Location = new System.Drawing.Point(567, 148);
-            this.chkShowPassword.Name = "chkShowPassword";
-            this.chkShowPassword.Size = new System.Drawing.Size(114, 20);
-            this.chkShowPassword.TabIndex = 4;
-            this.chkShowPassword.Text = "Hiện mật khẩu";
-            this.chkShowPassword.UseVisualStyleBackColor = true;
-            this.chkShowPassword.CheckedChanged += new System.EventHandler(this.chkShowPassword_CheckedChanged);
-            // 
-            // errorProvider
-            // 
-            this.errorProvider.ContainerControl = this;
+            this.btnDangKy.Location = new System.Drawing.Point(244, 169);
+            this.btnDangKy.Name = "btnDangKy";
+            this.btnDangKy.Size = new System.Drawing.Size(75, 23);
+            this.btnDangKy.TabIndex = 3;
+            this.btnDangKy.Text = "Đăng ký";
+            this.btnDangKy.UseVisualStyleBackColor = true;
+            this.btnDangKy.Click += new System.EventHandler(this.btnDangKy_Click);
             // 
             // Form1
             // 
-            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(985, 707);
-            this.Controls.Add(this.chkShowPassword);
-            this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtUsername);
+            this.ClientSize = new System.Drawing.Size(955, 785);
+            this.Controls.Add(this.btnDangKy);
+            this.Controls.Add(this.cboCourse);
+            this.Controls.Add(this.dtpBirthDate);
+            this.Controls.Add(this.mtxtPhone);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,12 +88,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.CheckBox chkShowPassword;
-        private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.MaskedTextBox mtxtPhone;
+        private System.Windows.Forms.DateTimePicker dtpBirthDate;
+        private System.Windows.Forms.ComboBox cboCourse;
+        private System.Windows.Forms.Button btnDangKy;
     }
 }
 
